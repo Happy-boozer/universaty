@@ -28,3 +28,19 @@ void task_2() {
     }
     return;
 }
+
+void task_3() {
+    float b, c;
+    cout << "Задание3" << "\n";
+    cin >> b;
+    cin >> c;
+    if (b != 0)
+        cout << -c / b << endl;
+    else
+    if (b == 0 and c != 0) {
+        cout << "бесконечное число решений" << "\n";
+    }
+    else
+    if (b != 0 and c == 0)
+        cout << 0 << "\n";
+}

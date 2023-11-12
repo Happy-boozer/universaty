@@ -44,3 +44,46 @@ void task_3() {
     if (b != 0 and c == 0)
         cout << 0 << "\n";
 }
+
+void task_4() {
+    float m, r, t, d, x1, x2, x;
+    cout << "Задание4" << "\n";
+    cout << "Ввкдите коэфф a" << "\n";
+    cin >> m;
+    cout << "Ввкдите коэфф b" << "\n";
+    cin >> r;
+    cout << "Ввкдите коэфф c" << "\n";
+    cin >> t;
+
+    if (m != 0) {
+        d = r * r - 4 * m * t;
+        if (d > 0) {
+            x1 = (-r + pow(d, 0.5)) / (2 * m);
+            x2 = (-r - pow(d, 0.5)) / (2 * m);
+            cout << "x1==" << x1 << endl;
+            cout << "x2==" << x2 << endl;
+        }
+        if (d == 0) {
+            x = -r / 2 * m;
+            cout << x << endl;
+        }
+        if (d < 0) {
+            cout << "решений нет" << endl;
+        }
+    }
+    else {
+        if (r != 0 and m != 0) {
+            cout << "x==" << -t / r << endl;
+        }
+        if (r == 0 and t != 0) {
+            cout << "решений нет" << endl;
+        }
+        if (r == 0 and t == 0) {
+            cout << "любое x" << endl;
+        }
+        else {
+
+        }
+
+    }
+}

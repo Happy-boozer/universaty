@@ -36,19 +36,23 @@ void RESHETO() {
     //cout << arr[n] << "\n";
 
     for (int j = 2; j < n; j++) {
-        //cout << arr[j] << "\n";
-        for (int k = 3; k < n++; k++) {
-            //cout << arr[k] << "\n";
-        
-            if (arr[k] % arr[j] == 0 and arr[k]!= arr[j] and arr[k]!=0) {
-                cout << arr[k]<< arr[j] << "\n";
-                arr[k] = 0;
-           }
+    if (j < n) {
+        if (arr[j] != 0) {
+            m = j * 2;
+            if (m < n) {
+                arr[m] = 0;
+                m = m + j;
+            }
+            else
+                continue;
         }
+        else
+            continue;
     }
-    //cout << arr << "\n";
-   /*for (int r = 2; r < n+2; r++)
-        cout << arr[r] << "\n";*/
+}
+for (int r = 2; r < n; r++) {
+    cout << arr[r] << "\n";
+}
     return;
 
 }

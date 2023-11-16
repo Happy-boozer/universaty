@@ -25,34 +25,22 @@ int main()
     NOD();
 }
 
-void RESHETO() {
-    int n=0, m = 0, d=0;
-    cin >> n;
-    int* arr = new int(n + 3);
-    
-    for (int i = 2; i < n + 3;i++) {
-        arr[i] = i;
-    }
-    //cout << arr[n] << "\n";
-
-    for (int j = 2; j < n; j++) {
-    if (j < n) {
-        if (arr[j] != 0) {
-            m = j * 2;
-            if (m < n) {
-                arr[m] = 0;
-                m = m + j;
-            }
-            else
-                continue;
+bool RESHETO(int n) {
+    for (int i = 2; i <= pow(n, 0.5);i++) {
+        if (n % i == 0) {
+            return false;
         }
-        else
-            continue;
     }
+    return true;
 }
-for (int r = 2; r < n; r++) {
-    cout << arr[r] << "\n";
-}
-    return;
 
+void RR() {
+    int n, c = 0;
+    cin >> n;
+    for (int i = 2; i <= n; i++) {
+        if (RESHETO(i))
+            c += 1;
+    }
+    cout << c << "\n";
+    return;
 }

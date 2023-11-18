@@ -26,21 +26,38 @@ int main()
 }
 
 bool RESHETO(int n) {
-    for (int i = 2; i <= pow(n, 0.5);i++) {
-        if (n % i == 0) {
-            return false;
+    int n = 0, m = 0;
+cin >> n;
+//int r = n + 3;
+int* arr = new int[n+1];//выделение памяти под числа
+bool* arr_2 = new bool[n + 1];//выделение под флаги
+for (int i = 2; i < n+1; i++) {
+    arr[i] = i;
+    arr_2[i] = true;//забиваю оба массива
+}
+//cout << arr[n] << "\n";
+for (int j = 2; j < n; j++) {
+    //arr[j] = j;
+    //cout << arr[j] << "\n";
+    for (int k = 3; k < n+1; k++) {
+        //cout << arr[k] << "\n";
+        
+        if (arr[k] % arr[j] == 0 and arr[k] != arr[j]) {// проверяю на сложность
+            //cout << arr[k] << arr[j] << "\n";
+            arr_2[k] = false;// опускаю флаг
+            //delete[k] arr_2;
         }
     }
-    return true;
 }
-
-void RR() {
-    int n, c = 0;
-    cin >> n;
-    for (int i = 2; i <= n; i++) {
-        if (RESHETO(i))
-            c += 1;
-    }
-    cout << c << "\n";
-    return;
+for (int i = 2; i < n + 1; i++) {
+    if (arr_2[i])// считаю сколько их там
+        m += 1;
+}
+delete[] arr;
+delete[] arr_2;//очищаю стек
+//cout << arr << "\n";
+//m = sizeof(*arr_2) / sizeof(arr_2[0]); //length calculation
+//m = sizeof(*arr);
+cout<< m;
+return;
 }

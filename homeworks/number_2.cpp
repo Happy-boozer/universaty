@@ -22,3 +22,27 @@ void task_1() {
         cout << "КУ-ку?" << "\n";
     
 }
+
+void task_2() {
+    cout << "задача номер 2" << "\n";
+    float a, x;
+    double answer;
+    cout << "Введите число a" << "\n";
+    cin >> a;
+    cout << "Введите пложалуйста число X" << "\n";
+    cin >> x;
+    if (abs(x) < 1 and abs(x)       != 0) {
+        answer = a * log(abs(x));
+        cout << answer << "\n";
+    }
+    if (abs(x) >= 1) {
+        if (pow(x, 2) > a) {
+            cout << "ненада" << "\n";
+        }
+        else {
+
+            answer = pow((a - x * x), 0.5);
+            cout << answer << "\n";
+        }
+    }
+}

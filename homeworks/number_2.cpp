@@ -46,3 +46,22 @@ void task_2() {
         }
     }
 }
+
+void task_3() {
+    cout << "задача номер 3" << "\n";
+    float b, y, answer, w;
+    cout << "Введите пложалуйста число X" << "\n";
+    cin >> w;
+    cout << "Введите пложалуйста число b" << "\n";
+    cin >> b;
+    cout << "Введите пложалуйста число y" << "\n";
+    cin >> y;
+    if (((b - y) > 0) and ((b - w) >= 0)) {
+        answer = log(b - y) * pow((b - w), 0.5);
+        cout << answer << "\n";
+    }
+    else
+        cout << "не буду я это считать ";
+
+    
+}

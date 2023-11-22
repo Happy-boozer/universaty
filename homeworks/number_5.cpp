@@ -86,9 +86,8 @@ void task_3_8() {
 }
 
 void task_3_32() {
-    string a2, text,a = "qwertyisnotpassword";
+    string a2, text, a = "Iloveyou";
     ofstream MyFile("HW5.txt");
-    ofstream MyFile2("HW6.txt");
     if (MyFile.is_open()) {
         MyFile << a;
         MyFile.close();
@@ -98,23 +97,19 @@ void task_3_32() {
         while (getline(cuca, text)) {
             // вывод текста из файла
             //cout << text << "\n";
-            for (int i = 0; i <= text.length(); i++) {
+            for (int i = 0; i < text.length(); i++) {
                 text[i] = tolower(text[i]);
                 if (int(text[i]) < 122) {
-                    a2 += to_string(int(a[i]) + 1);
+                    a2 += char (int(a[i]) + 1);
                     //text[i] = "";
                 }
                 else {
-                    a2 += to_string(97);
-                }   
+                    a2 += char(97);
+                }
             }
-        } 
+        }
     }
-    if (MyFile2.is_open()) {
-        MyFile2 << a2;
-        MyFile2.close();
-    }
-    rename("HW5.txt", "HW6.txt");
+    cout << a2 << "\n";
     return;
 
 }

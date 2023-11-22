@@ -1,4 +1,7 @@
 #include <iostream>
+#include<Windows.h>
+#include <fstream>
+#include <string>
 using namespace std;
 int NOD() {
     int a, b;

@@ -367,17 +367,14 @@ int task_9() {
         des_num = stoi(old_number);
     if (new_osn > 1) {
         while (des_num != 0) { //получение числа в новом основании
-            if (isdigit(des_num % new_osn)){
-            new_num += to_string(des_num % new_osn);
-            
-            //cout << des_num % new_osn << "\n";
-            des_num = des_num / new_osn;
-            //cout << des_num / new_osn << "\n";
-            }
-            else {
-                new_num += FromDigit(des_num % new_osn);
-                des_num = des_num / new_osn;
-            }
+            if (des_num % new_osn < 10) {
+    new_num += to_string(des_num % new_osn);
+    des_num = des_num / new_osn;
+}
+else {
+    new_num += FromDigit(des_num % new_osn);
+    des_num = des_num / new_osn;
+}
 
             
 

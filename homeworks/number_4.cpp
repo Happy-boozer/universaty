@@ -338,8 +338,8 @@ string FromDigit(int letter) {
 }
 
 int task_9() {
-    string old_number, new_num;
-    int old_osn, new_osn, des_num=0;
+    string old_number, p_num, new_num;
+    int old_osn, new_osn, p_number, des_num=0;
     cout << "ВВедите число" << "\n";
     cin >> old_number;
     cout << "ВВедите его основание" << "\n";
@@ -358,13 +358,28 @@ int task_9() {
                 }
             }
             else {
-                des_num += ToDigit(old_number[i]) * pow(old_osn, old_number.length() - (i + 1));
+                p_number = ToDigit(old_number[i]);
+if (p_number < old_osn) {
+    des_num += ToDigit(old_number[i]) * pow(old_osn, old_number.length() - (i + 1));
+}
+else {
+    cout << "oops" << "\n";
+    return -1;
             }
         }
     }
 
-    else 
-        des_num = stoi(old_number);
+    else {
+        for (int i = 0; i <= old_number.length(); i++) {
+    if (isdigit(old_number[i])) 
+        p_num += old_number[i];
+    else {
+        cout << "oops" << "\n";
+        return -1;
+    }
+    
+}
+        des_num = stoi(p_num);}
     if (new_osn > 1) {
         while (des_num != 0) { //получение числа в новом основании
             if (des_num % new_osn < 10) {

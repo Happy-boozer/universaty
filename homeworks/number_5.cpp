@@ -116,3 +116,41 @@ void task_3_32() {
     return;
 
 }
+
+void task_4_61() {
+    int n = 0;
+    int debili[1000];
+    for (int r = 0; r <= 1000; r++) { debili[r] = 0; }
+    int chisla[] = {10, 20, 400};
+    int* d = new int[10000];
+    for (int i : chisla) {
+        for (int k = 1; k <= i; k++) {
+            n += 1;
+            if (i % k == 0) {
+                d[n] = k;
+            }
+            else
+                d[n] = 0;
+        }
+    }
+    for (int j = 1; j < n; j++) {
+        if (d[j] != 0) {
+            // поиск в массиве всех вхождений определённого значения
+            int pattern = d[j];  // искомое значение
+            for (int i = d[j+1]; i <= n; i++) {
+                if (d[i] == pattern) 
+                    debili[d[j]] += 1;
+            }
+        }
+    }
+    int m;
+    for (int k = 1; k < n; k++) {
+        if (debili[k] / 3 == 3)
+            m = k;
+        for (int t = 2; t < n; t++) {
+            if (debili[t] / 3 == 3)
+                m = t;
+        }
+    }
+    cout << m << '\n';
+}

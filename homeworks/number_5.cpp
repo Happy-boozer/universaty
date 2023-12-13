@@ -151,3 +151,88 @@ void task_4_61() {
     cout << min << "\n";
    
 }
+
+void task_5_9() {
+    int C[12];//Финальный массив
+    ofstream MyFile("A.txt");
+    if (MyFile.is_open()) {
+        MyFile << "12"<<"\n";
+        MyFile << "789"<<"\n";
+        MyFile << "89"<<"\n";
+        MyFile << "77"<<"\n";
+        MyFile.close();
+    } 
+    string Q[6]; // мвссив для считывания
+    ifstream cuca("A.txt");
+    if (cuca.is_open()) {
+        for (int k = 0; k < 6; k++) {
+            string a = "";
+            getline(cuca, a);
+            string wiwod;
+            for (int i = 0; i < a.length(); i++) {
+                if (isdigit(a[i])) {
+                    wiwod += a[i];
+                }
+                Q[k] = wiwod;
+            }
+        }
+    }
+
+    ofstream Myfile("B.txt");
+    if (Myfile.is_open()) {
+        Myfile << "16"<<"\n";
+        Myfile << "86"<<"\n";
+        Myfile << "9"<<"\n";
+        Myfile << "5"<<"\n";
+        Myfile.close();
+    }
+    string R[6];
+    ifstream cuca1("B.txt");
+    if (cuca1.is_open()) {
+        for (int k = 0; k < 6; k++) {
+            string a = "";
+            getline(cuca1, a);
+            string wiwod;
+            for (int i = 0; i < a.length(); i++) {
+                if (isdigit(a[i])) {
+                    wiwod += a[i];
+                }
+                R[k] = wiwod;
+            }
+        }
+    }
+
+    for (int s = 0; s < 12; s++) {
+        C[s] = 0;
+    }
+    for (int j = 0;j < 6; j++) {
+        if (Q[j].length() > 0)
+            C[j] = stoi(Q[j]);
+    }
+    for (int t = 6; t < 12; t++) {
+        if (R[t-6].length() > 0)
+            C[t] = stoi(R[t - 6]);
+    }
+
+    for (int g = 0; g < 12; g++) {
+        for (int d = 0; d < 11; d++) {
+            if (C[d] > C[d+1]) {
+                int temp = C[d];
+                C[d] = C[d+1];
+                C[d+1] = temp;
+            }
+
+        }
+    }
+    //for (int s = 0; s < 12; s++) {
+    //    cout << C[s] << "\n";
+    //}
+    ofstream Mfile("C.txt");
+    if (Mfile.is_open()) {
+        for (int i = 0; i < 12; i++) {
+            if (C[i] != 0)
+                Mfile << C[i] << "\n";
+        }
+    }
+    Mfile.close();
+}

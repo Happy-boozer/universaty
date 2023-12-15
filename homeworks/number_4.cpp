@@ -338,71 +338,44 @@ string FromDigit(int letter) {
 }
 
 int task_9() {
-    string old_number, p_num, new_num;
-    int old_osn, new_osn, p_number, des_num=0;
-    cout << "ВВедите число" << "\n";
-    cin >> old_number;
-    cout << "ВВедите его основание" << "\n";
+    int old_osn, new_osn, x, des_num = 0;
+    string old_number, new_number;
     cin >> old_osn;
-    cout << "ВВедите новое основание" << "\n";
+    if (old_osn > 1)
+        cin >> old_number;
+    else {
+        cout << "Kaput" << "\n";
+        return -1;
+    }
     cin >> new_osn;
-    if (old_osn != 10) {
-        for (int i = 0; i < old_number.length(); i++) { //привод к десятичной системе
+    if (new_osn > 1) {
+        for (int i = 0; i < old_number.length(); i++) {
             if (isdigit(old_number[i])) {
-                int x = old_number[i] - '0'; // char в int
-                if (x < old_osn)
-                    des_num += x * pow(old_osn, old_number.length() - (i + 1));
+                 if (stoi(to_string(old_number[i])) < old_osn) {
+                    //int x = old_number[i] - '0';
+                    //des_num += x * pow(old_osn, old_number.length() - (i + 1));
+                    //des_num += 
+                }
                 else {
-                    cout << "oops" << "\n";
+                    cout << "OOOps" << "\n";
                     return -1;
                 }
             }
             else {
-                p_number = ToDigit(old_number[i]);
-if (p_number < old_osn) {
-    des_num += ToDigit(old_number[i]) * pow(old_osn, old_number.length() - (i + 1));
-}
-else {
-    cout << "oops" << "\n";
-    return -1;
+                string y = FromDigit(old_number[i]);
+                if (stoi(y) < old_osn) {
+                    des_num += stoi(y) * pow(old_osn, old_number.length() - (i + 1));
+                }
+                else {
+                    cout << "OOOps" << "\n";
+                    return -1;
+                }
+
+
             }
         }
     }
-
-    else {
-        for (int i = 0; i <= old_number.length(); i++) {
-    if (isdigit(old_number[i])) 
-        p_num += old_number[i];
-    else {
-        cout << "oops" << "\n";
-        return -1;
-    }
-    
-}
-        des_num = stoi(p_num);}
-    if (new_osn > 1) {
-        while (des_num != 0) { //получение числа в новом основании
-            if (des_num % new_osn < 10) {
-    new_num += to_string(des_num % new_osn);
-    des_num = des_num / new_osn;
-}
-else {
-    new_num += FromDigit(des_num % new_osn);
-    des_num = des_num / new_osn;
-}
-
-            
-
-        }
-        reverse(new_num.begin(), new_num.end());
-        cout << new_num << "\n";
-        return 0;
-    }
-    else {
-        cout << "oops" << "\n";
-        return -1;
-    }
-    
+    cout << des_num;
 }
 
 int main()

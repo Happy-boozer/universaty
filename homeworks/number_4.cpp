@@ -376,6 +376,17 @@ int task_9() {
         }
     }
     cout << des_num;
+        string new_num = "";
+    if ((new_osn >= 2) and (new_osn <= 10)) {
+        while (des_num != 0) {
+            new_num += des_num % new_osn;
+            des_num /= new_osn;
+        }
+        reverse(new_num.begin(), new_num.end());
+        cout << "yfuy" << "\n";
+        cout << new_num << "\n";
+        return 0;
+    }
 }
 
 int main()

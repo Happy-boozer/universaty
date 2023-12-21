@@ -64,7 +64,7 @@ void task_2() {
     };
 }
 
-void task_3() {//-????????????????????????????????
+void task_3() {
     int type;
     cout << "введите номер соответсвующий типу фигуры прямоугольник - 1; треукгольник - 2; круг - 3" << "\n";
     cin >> type;
@@ -170,12 +170,6 @@ string ToRoman(int anArabic) {
 
     string result;
     string r = to_string(anArabic);
-    //for (int i = 0; i < r.length(); i++) {
-    //    string stro="";
-    //    //cout << r[i] << "\n";
-    //    if (r[i] == '1')
-    //        stro += symbol[1 * pow(10, i)];
-    //}
     for (const int& level : levels) {
         if (anArabic >= level) {
             do {
@@ -198,8 +192,6 @@ void task_6() {
         for (int j = 0; j < 7; j++) {
             if (string{sign[i]} == signs[j]) {
                 indexes[i] = j;
-                //cout << signs[j] << "\n";
-                //cout << string{sign[i]} << "\n";
         }
         
         }
@@ -231,7 +223,7 @@ void task_6() {
     
 }
 
-int gets(int s, int m, int b, int c) {//stack overflow
+int gets(int s, int m, int b, int c) {
     if (s <= 0)
         return 0;
     if(s <= 3900)
@@ -278,10 +270,6 @@ void task_8() {
 
         }
     }
-    /*for (int l = 0; l < 3; l++) {
-        for (int k = 0; k < 2; k++) {
-            cout << profit[l][k] << "\n";
-        }*/
     float Bolshie_dengi=0, Malenkie_dengi, Bolshie_komissionnie=0, Malenkie_kommissionie, vse_prodazji=0, vse_komissionnie=0, vse_dengi; 
     int index_B_D_P, index_M_D_P, index_B_K_P, index_M_K_P;
     for (int i = 0; i < 3;i++) {
@@ -360,7 +348,6 @@ int task_9() {
                  if (stoi(str) < old_osn) {
                     int x = old_number[i] - '0';
                     des_num += x * pow(old_osn, old_number.length() - (i + 1));
-                    //des_num += 
                 }
                 else {
                     cout << "OOOps" << "\n";

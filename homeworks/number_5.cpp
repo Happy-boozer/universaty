@@ -28,9 +28,9 @@ int main()
     NOD();
 }
 
-bool RESHETO(int n) {
+void RESHETO(int n) {
     int n = 0, m = 0;
-cin >> n;
+//cin >> n;
 //int r = n + 3;
 int* arr = new int[n+1];//выделение памяти под числа
 bool* arr_2 = new bool[n + 1];//выделение под флаги

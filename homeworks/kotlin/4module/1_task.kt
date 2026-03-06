@@ -116,9 +116,3 @@ suspend fun loadWeatherWithDelay(): List<String> {
     }
 }
 
- //Функция для симуляции случайных сбоев (30% вероятность)
-//fun simulateRandomFailure(operationName: String) {
-//    if (Random.nextInt(100) < 30) { // 30% вероятность ошибки
-//        throw RuntimeException("Случайный сбой в операции: $operationName")
-//    }
-//}

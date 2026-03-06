@@ -18,10 +18,10 @@ data class WeatherData(val city: String, val temperature: Int)
 
 suspend fun main() = coroutineScope {
     val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        println("❌ Ошибка в корутине: ${throwable.message}")
+        println(" Ошибка в корутине: ${throwable.message}")
     }
 
-    println("🚀 Начинаем выполнение параллельных задач...")
+    println(" Начинаем выполнение параллельных задач...")
 
     val totalTime = measureTimeMillis {
         try {
@@ -34,8 +34,8 @@ suspend fun main() = coroutineScope {
             val results = awaitAll(usersDeferred, salesDeferred, weatherDeferred)
 
             // Выводим результаты
-            println("\n✅ Все задачи успешно выполнены!")
-            println("\n📋 Результаты:")
+            println("\n Все задачи успешно выполнены!")
+            println("\n Результаты:")
 
             if (results[0] != null) {
                 println("\n👥 Список пользователей:")
@@ -43,24 +43,24 @@ suspend fun main() = coroutineScope {
             }
 
             if (results[1] != null) {
-                println("\n📊 Статистика продаж за день:")
+                println("\n Статистика продаж за день:")
                 (results[1] as Map<String, Int>).forEach { (product, count) ->
                     println("  - $product: $count шт.")
                 }
             }
 
             if (results[2] != null) {
-                println("\n🌤 Погода в городах:")
+                println("\n Погода в городах:")
                 (results[2] as List<String>).forEach { println("  - $it") }
             }
 
         } catch (e: Exception) {
-            println("\n❌ Произошла ошибка при выполнении задач: ${e.message}")
-            println("📝 Детали ошибки: ${e.cause?.message ?: "Нет дополнительной информации"}")
+            println("\n Произошла ошибка при выполнении задач: ${e.message}")
+            println(" Детали ошибки: ${e.cause?.message ?: "Нет дополнительной информации"}")
         }
     }
 
-    println("\n⏱ Общее время выполнения: ${totalTime}мс")
+    println("\n Общее время выполнения: ${totalTime}мс")
 }
 
 // Функция для загрузки пользователей с задержкой
